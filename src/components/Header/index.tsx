@@ -1,28 +1,23 @@
+import Image from 'next/image'
 import React from 'react'
+
+import { Button } from "@/components/ui/button"
 
 const Header = () => {
     return (
-        <div className="navbar bg-orange-500">
-            <div className="flex-1">
-                <a className="btn btn-ghost text-xl">daisyUI</a>
-            </div>
-            <div className="flex-none">
-                <ul className="menu menu-horizontal px-1">
-                    <li><a>Link</a></li>
-                    <li>
-                        <details>
-                            <summary>
-                                Parent
-                            </summary>
-                            <ul className="p-2 bg-base-100 rounded-t-none">
-                                <li><a>Link 1</a></li>
-                                <li><a>Link 2</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <header className="bg-gray-100">
+            <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+                <div className="flex lg:flex-1">
+                    <a href="#" className="-m-1.5 p-1.5">
+                        <span className="sr-only">Your Company</span>
+                        <Image width={100} height={100} src="/vercel.svg" alt="logo" />
+                    </a>
+                </div>
+                <div className="flex">
+                    <Button>login</Button>
+                </div>
+            </nav>
+        </header>
     )
 }
 

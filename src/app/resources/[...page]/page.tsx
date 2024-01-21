@@ -21,14 +21,14 @@ export default async function Page({ params }: PageProps) {
 
     // console.log('first content content', content)
 
-    const slugQuery = await getModelDataBySlug(slug)
+    // const slugQuery = await getModelDataBySlug(slug)
 
     return (
         <>
             {/* Render the Builder page */}
             <Header />
-            {resources && <HeaderWithStats title={resources?.title} />}
-            <RenderBuilderContent content={content} />
+            <HeaderWithStats title={resources?.title || "Add title here"} />
+            <RenderBuilderContent content={content} model="resources" />
         </>
     );
 }

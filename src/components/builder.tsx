@@ -6,6 +6,8 @@ import DefaultErrorPage from "next/error";
 import Header from '@/components/Header'
 import NotFound from '@/components/NotFound'
 import CTA from '@/components/CTA'
+import HeaderWithStats from "./HeaderWithStats";
+import ProductList from "./ProductList";
 
 interface BuilderPageProps { 
   content?: BuilderContent;
@@ -15,20 +17,46 @@ interface BuilderPageProps {
 const BUILDER_API_KEY = process.env.NEXT_PUBLIC_BUILDER_API_KEY || '';
 builder.init(BUILDER_API_KEY);
 
+Builder.registerBlock
+
 Builder.registerComponent(Header, { 
   name: 'Header',
   inputs: [{ name: 'title', type: 'text' }],
-  image: 'https://tabler-icons.io/static/tabler-icons/icons-png/3d-cube-sphere-off.png'
+  screenshot: 'https://cdn.builder.io/api/v1/image/assets%2Fcdb3c2054c0f495082e97ff7be63f37d%2Fff3aedd7375f4430b288a8ad7ab11025',
+  tag: 'my-dynamic-component',
+  defaultStyles: {
+    marginTop: '0'
+  },
 })
 
 Builder.registerComponent(NotFound, {
   name: 'Not Found',
   inputs: [{ name: 'title', type: 'text' }],
+  defaultStyles: {
+    marginTop: '0'
+  },
 })
 
 Builder.registerComponent(CTA, {
   name: 'CTA',
   inputs: [{ name: 'title', type: 'text' }],
+  defaultStyles: {
+    marginTop: '0'
+  },
+})
+
+Builder.registerComponent(HeaderWithStats, {
+  name: 'Header With Stats',
+  defaultStyles: {
+    marginTop: '0'
+  },
+})
+
+Builder.registerComponent(ProductList, {
+  name: 'Product List',
+  defaultStyles: {
+    marginTop: '0'
+  },
 })
 
 export function RenderBuilderContent({ content, model = 'page' }: BuilderPageProps) { 

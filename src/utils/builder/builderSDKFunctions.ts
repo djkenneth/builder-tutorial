@@ -9,6 +9,18 @@ export const getBuilderDataModel = async (model: string) => {
     return data;
 };
 
+export const getAllBuilderDataModel = async (model: string) => {
+    const data = await builder.getAll(model, {
+        fields: 'data',
+        options: { noTargeting: true },
+        query: {
+            'data.title': { $regex: 'she', $options: 'i' }
+        }
+    })
+
+    return data;
+}
+
 export const getModelData = async (slug: string, model: string) => {
     const res = await builder
         .get(model, {
@@ -29,5 +41,6 @@ export const getModelDataBySlug = async (slug: string) => {
         }
     })
 
-    console.log('res', res)
+    return res;
+    // console.log('res', res)
 }
