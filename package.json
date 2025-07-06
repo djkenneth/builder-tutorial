@@ -11,10 +11,12 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@builder.io/dev-tools": "^0.2.8",
     "@builder.io/react": "^3.1.1",
     "@builder.io/sdk": "^2.1.1",
     "@radix-ui/react-checkbox": "^1.0.4",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@splidejs/react-splide": "^0.7.12",
@@ -30,6 +32,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@builder.io/dev-tools": "^0.2.8",
     "@storybook/addon-essentials": "7.6.6",
     "@storybook/addon-interactions": "7.6.6",
     "@storybook/addon-links": "7.6.6",

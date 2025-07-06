@@ -1,6 +1,7 @@
 import { builder } from "@builder.io/sdk";
 import { RenderBuilderContent } from "@/components/builder";
 import Header from "@/components/Header";
+import { getBuilderDataModel } from "@/utils/builder/builderSDKFunctions";
 
 const BUILDER_API_KEY = process.env.NEXT_PUBLIC_BUILDER_API_KEY || '';
 builder.init(BUILDER_API_KEY);
@@ -12,6 +13,9 @@ interface PageProps {
 }
 
 export default async function Page(props: PageProps) {
+
+  const { data: header } = await getBuilderDataModel('header');
+
   const content = await builder
     // Get the page content from Builder with the specified options
     .get("page", {
@@ -25,10 +29,12 @@ export default async function Page(props: PageProps) {
     // Convert the result to a promise
     .toPromise();
 
+    // console.log('header', header)
+
   return (
     <>
       {/* Render the Builder page */}
-      <Header />
+      {header && <Header {...header} />}
       <RenderBuilderContent content={content} />
     </>
   );
